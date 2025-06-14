@@ -1,24 +1,24 @@
 import express  from "express";
 import cors from "cors"
-import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import userRouter from "./routes/user";
 import cookieParser from "cookie-parser";
 
 const PORT = 3000;
-const MONGO_URL = "mongodb://127.0.0.1:27017/test";
+const MONGO_URL = "mongodb://127.0.0.1:27017/TestDb";
 
 const app = express()
 
-app.use(bodyParser.json())
+
 
 const corsOptions = {
-  origin: '*',
+  origin: "http://*",
   credentials: true,
   METHODS:["GET","POST","DELETE"],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }
 
+app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser());
 

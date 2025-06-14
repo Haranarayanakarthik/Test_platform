@@ -52,9 +52,8 @@ const login = async (req, res) => {
         }
         const token = jsonwebtoken_1.default.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
         res
-            .status(200)
-            .json({ message: "Login successful." })
-            .cookie("token", token, cookieOptions);
+            .status(200).cookie("token", token, cookieOptions)
+            .json({ message: "Login successful." });
     }
     catch (err) {
         console.error(err);

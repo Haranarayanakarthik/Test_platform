@@ -58,9 +58,9 @@ export const login = async (req: any, res: any) => {
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
 
     res
-    .status(200)
+    .status(200).cookie("token",token,cookieOptions)
     .json({ message: "Login successful." })
-    .cookie("token",token,cookieOptions)
+    
 
 
   } catch (err) {
