@@ -8,6 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("./routes/user"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const questions_1 = __importDefault(require("./routes/questions"));
 const PORT = 3000;
 const MONGO_URL = "mongodb://127.0.0.1:27017/TestDb";
 const app = (0, express_1.default)();
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
     res.send("server wokin");
 });
 app.use(user_1.default);
+app.use(questions_1.default);
 const startServer = async () => {
     try {
         await mongoose_1.default.connect(MONGO_URL);

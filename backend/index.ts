@@ -3,6 +3,7 @@ import cors from "cors"
 import mongoose from "mongoose";
 import userRouter from "./routes/user";
 import cookieParser from "cookie-parser";
+import questionsRouter from "./routes/questions"
 
 const PORT = 3000;
 const MONGO_URL = "mongodb://127.0.0.1:27017/TestDb";
@@ -27,6 +28,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use(userRouter)
+app.use(questionsRouter)
 
 const startServer = async () => {
   try {
