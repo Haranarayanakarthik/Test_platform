@@ -20,6 +20,7 @@ export const pythonQuestions = async(req:Request,res:Response)=>{
 
         console.log(resp.data)
         res.json(resp.data)
+        // process and send 
     } catch (error) {
         console.log(error)
     }
